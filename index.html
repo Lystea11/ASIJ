@@ -4,21 +4,158 @@
 <head>
     <meta charset="utf-8" />
     <title>ASIJ Grade Converter</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #3498db; /* Blue color */
+            margin-bottom: 20px;
+        }
+
+        .grade-form {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+            width: 300px;
+        }
+
+        .grade-form:hover {
+            transform: scale(1.05);
+        }
+
+        .grade-title {
+            color: #3498db; /* Blue color */
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #3498db; /* Blue color */
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #555; /* Dark gray color */
+            background-color: #ecf0f1; /* Light gray color */
+        }
+
+        input[type="button"] {
+            background-color: #3498db; /* Blue color */
+            color: #ffffff; /* White color */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        input[type="button"]:hover {
+            background-color: #2980b9; /* Darker blue color on hover */
+        }
+    </style>
 </head>
 <body>
-    <form action="redirect.php" method="post">
-        <label for="options">Choose an option:</label>
-        <select id="options" name="selectedOption">
+    <h1>Select a grade:</h1>
+
+    <!-- Grade 9 Form -->
+    <div class="grade-form" id="grade9Form">
+        <div class="grade-title">Grade 9</div>
+        <label for="options1">Choose a Course:</label>
+        <select id="options1" name="selectedOption">
+            <option value="option1">Foundations</option>
+            <option value="option2">English 9</option>
+            <option value="option3">Bio 9</option>
+            <option value="option4">Wellness 9</option>
+        </select>
+        <input type="button" value="Submit" onclick="redirectUser('options1')">
+    </div>
+
+    <!-- Grade 10 Form -->
+    <div class="grade-form" id="grade10Form">
+        <div class="grade-title">Grade 10</div>
+        <label for="options2">Choose a Course:</label>
+        <select id="options2" name="selectedOption">
             <option value="option1">Option 1</option>
             <option value="option2">Option 2</option>
             <option value="option3">Option 3</option>
             <option value="option4">Option 4</option>
         </select>
-    
-        <!-- Submit button -->
-        <input type="submit" value="Submit">
-    </form>
+        <input type="button" value="Submit" onclick="redirectUser('options2')">
+    </div>
 
+    <!-- Grade 11 Form -->
+    <div class="grade-form" id="grade11Form">
+        <div class="grade-title">Grade 11</div>
+        <label for="options3">Choose a Course:</label>
+        <select id="options3" name="selectedOption">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+        </select>
+        <input type="button" value="Submit" onclick="redirectUser('options3')">
+    </div>
+
+    <!-- Grade 12 Form -->
+    <div class="grade-form" id="grade12Form">
+        <div class="grade-title">Grade 12</div>
+        <label for="options4">Choose a Course:</label>
+        <select id="options4" name="selectedOption">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+        </select>
+        <input type="button" value="Submit" onclick="redirectUser('options4')">
+    </div>
+<script>
+    function redirectUser(OptionsId) {
+        // Get the selected option value
+        var selectedOption = document.getElementById(OptionsId).value;
+        if (OptionsId == "options1") {
+            // Redirect based on the selected option
+            switch (selectedOption) {
+                case 'option1':
+                    window.location.href = 'FOTMW.html';
+                    break;
+                case 'option2':
+                    window.location.href = 'English9.html';
+                    break;
+                case 'option3':
+                    window.location.href = 'Bio9.html';
+                    break;
+                case 'option4':
+                    window.location.href = 'Wellness9.html';
+                    break;
+                default:
+                    window.location.href = 'index.html';
+                    break;
+            }
+        }
+    }
+</script>
 </body>
 
 

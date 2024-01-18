@@ -3,9 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
+    <title>Foundationss</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        form:hover {
+            transform: scale(1.05);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #3498db; /* Blue color */
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #555; /* Dark gray color */
+            background-color: #ecf0f1; /* Light gray color */
+        }
+
+        p {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        #numberGrade, #letterGrade {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            color: #e74c3c; /* Red color */
+        }
+    </style>
 </head>
+
 <body>
+    <form id="Strand1">
+        <label for="options1">Reading:</label>
+        <select id="options1" name="selectedOption">
+            <option value="option1">Exemplary</option>
+            <option value="option2">Proficient-High</option>
+            <option value="option3">Proficient</option>
+            <option value="option4">Approaching-High</option>
+            <option value="option4">Approaching</option>
+            <option value="option4">Beggining</option>
+        </select>
+    </form>
+    <form id="Strand2">
+        <label for="options2">Writing:</label>
+        <select id="options2" name="selectedOption">
+            <option value="option1">Exemplary</option>
+            <option value="option2">Proficient-High</option>
+            <option value="option3">Proficient</option>
+            <option value="option4">Approaching-High</option>
+            <option value="option4">Approaching</option>
+            <option value="option4">Beggining</option>
+        </select>
+    </form>
+    <form id="Strand3">
+        <label for="options3">Speaking:</label>
+        <select id="options3" name="selectedOption">
+            <option value="option1">Exemplary</option>
+            <option value="option2">Proficient-High</option>
+            <option value="option3">Proficient</option>
+            <option value="option4">Approaching-High</option>
+            <option value="option4">Approaching</option>
+            <option value="option4">Beggining</option>
+        </select>
+    </form>
+    <p id="numberGrade">Number Grade</p>
+    <p id="letterGrade">Letter Grade:</p>
+
+
+<script>
+    const str1 = document.querySelector("#options1");
+    const str2 = document.querySelector("#options2");
+    const str3 = document.querySelector("#options3");
+    const numberGrade = document.querySelector("#numberGrade");
+    const letterGrade = document.querySelector("#letterGrade");
+    var int1 = 0;
+    var int2 = 0;
+    var int3 = 0;
+    setInterval(EverySecond,2000)
+    function EverySecond() {
+        console.log(str1.options[str1.selectedIndex]);
+        const string1 = str1.options[str1.selectedIndex].textContent;
+        if (string1 == "Exemplary") { int1 = 4;}
+        else if (string1 == "Proficient-High") {int1 = 3.5; }
+        else if (string1 == "Proficient") {int1 = 3.0; }
+        else if (string1 == "Approaching-High") {int1 = 2.5; }
+        else if (string1 == "Approaching") {int1 = 2.0; }
+        else if (string1 == "Beggining") {int1 = 1; }
+
+        const string2 = str2.options[str2.selectedIndex].textContent;
+        if (string2 == "Exemplary") { int2 = 4;}
+        else if (string2 == "Proficient-High") {int2 = 3.5; }
+        else if (string2 == "Proficient") {int2 = 3.0; }
+        else if (string2 == "Approaching-High") {int2 = 2.5; }
+        else if (string2 == "Approaching") {int2 = 2.0; }
+        else if (string2 == "Beggining") {int2 = 1; }
+        console.log(int1);
+        console.log(int2);
+
+        const string3 = str3.options[str3.selectedIndex].textContent;
+        console.log(string3);
+        if (string3 == "Exemplary") { int3 = 4;}
+
+        else if (string3 == "Proficient-High") {int3 = 3.5; }
+        else if (string3 == "Proficient") {int3 = 3.0; }
+        else if (string3 == "Approaching-High") {int3 = 2.5; }
+        else if (string3 == "Approaching") {int3 = 2.0; }
+        else if (string3 == "Beggining") {int3 = 1; }
+        console.log(int3);
+        const finalNumber = int1 + int2 + int3;
+        console.log("final number = " + String(finalNumber))
+        var finalStr = "";
+        numberGrade.textContent =  "Number Grade: " + String(finalNumber);
+        if (finalNumber == 12) { finalStr = "A+"; }
+        if (finalNumber <= 11.9 && finalNumber >= 10.6) { finalStr = "A"; }
+        if (finalNumber <= 10.5 && finalNumber >= 9.6) { finalStr = "A-"; }
+        if (finalNumber <= 9.5 && finalNumber >= 9.1) { finalStr = "B+"; }
+        if (finalNumber <= 9 && finalNumber >= 8.1) { finalStr = "B"; }
+        if (finalNumber <= 8 && finalNumber >= 7.1) { finalStr = "B-"; }
+        if (finalNumber <= 7 && finalNumber >= 6.1) { finalStr = "C+"; }
+        if (finalNumber <= 6 && finalNumber >= 5.1) { finalStr = "C"; }
+        if (finalNumber <= 5 && finalNumber >= 4.1) { finalStr = "C-"; }
+        if (finalNumber <= 4 && finalNumber >= 2.1) { finalStr = "D"; }
+        if (finalNumber <= 2 && finalNumber >= 1.1) { finalStr = "F"; }
+        letterGrade.textContent = "Letter Grade: " + finalStr;
+
+
+        
+    }
+    
+</script>
+
 
 </body>
 </html>
